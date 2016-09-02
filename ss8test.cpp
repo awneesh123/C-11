@@ -92,14 +92,16 @@ else
 }
 
 
-int main()
+int main(int argc,char *argv[])
 {
 
+
 string currentDir,targetDir;
-cout << "Enter current dir : "<<endl;
-cin >> currentDir;
-cout << "Enter target dir : "<<endl;
-cin >> targetDir;
+if(argc < 3)
+  cout << "Error in supplying arguments "<<endl;
+
+currentDir=argv[1];
+targetDir=argv[2];
 
 cout << "current Directory: "<< currentDir<<endl;
 cout << "target Directory: " << targetDir<<endl;
