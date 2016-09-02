@@ -46,17 +46,23 @@ string st(1,targetDir[0]);
 string target;
 
 size_t in = targetDir.find("..");
+
+//check for cases like ..klm
+if(in!= string::npos){
 string nextchar = targetDir.substr(in+2,1);
 if(nextchar.compare("/"))
 {
 	cout<<"Error in operations "<<endl;
 	return NULL;
 }
+}
 
+//Go through destination
 
 for(auto str:dest)
 {
 
+//check if found root directory as first in target
 if(!st.compare("/"))
 {
    target = target + "/" +str;
@@ -90,7 +96,9 @@ int main()
 {
 
 string currentDir,targetDir;
+cout << "Enter current dir : "<<endl;
 cin >> currentDir;
+cout << "Enter target dir : "<<endl;
 cin >> targetDir;
 
 cout << "current Directory: "<< currentDir<<endl;
