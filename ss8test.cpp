@@ -1,11 +1,8 @@
 #include<iostream>
-#include<stack>
 #include<vector>
 #include<string>
 #include<algorithm>
-#include<sstream>
 #include<iterator>
-#include<cstring>
 #include<cstddef>
 
 using namespace std;
@@ -39,7 +36,6 @@ return tokens;
 string changeDir(string &currentDir,string targetDir)
 {
 
-stack<string>dirStack;
 vector<string>dest = split(targetDir);
 string s = "/";
 string st(1,targetDir[0]);
