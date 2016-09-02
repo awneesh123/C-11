@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<iterator>
 #include<cstddef>
+#include<regex>
 
 using namespace std;
 
@@ -40,6 +41,47 @@ vector<string>dest = split(targetDir);
 string s = "/";
 string st(1,targetDir[0]);
 string target;
+regex re("[a-z]*+(\\.\\.\\.)+[a-z]*");
+smatch match1;
+if(regex_search(targetDir,match1,re) && match1.size() > 1)
+{
+	cout <<"invalid Path"<<endl;
+	return NULL;
+}
+
+
+if(regex_search(currentDir,match1,re) && match1.size() > 1)
+{
+	cout <<"invalid current Path"<<endl;
+	return NULL;
+}
+
+
+regex re1("[a-z]+(\\.\\.)+[a-z]*");
+
+smatch match2;
+if(regex_search(targetDir,match2,re1) && match2.size() > 1)
+{
+	cout <<"invalid Path"<<endl;
+	return NULL;
+}
+
+
+if(regex_search(currentDir,match2,re1) && match2.size() > 1)
+{
+	cout <<"invalid current Path"<<endl;
+	return NULL;
+}
+
+regex re2("(\\.\\/)+");
+
+smatch match3;
+if(regex_search(targetDir,match3,re2) && match3.size() > 1)
+{
+	return currentDir;
+}
+
+
 //case like .
 if((targetDir.size() == 1) && (targetDir=="."))
 	return currentDir;
@@ -97,10 +139,15 @@ else
 int main(int argc,char *argv[])
 {
 
-
 string currentDir,targetDir;
 if(argc < 3)
-  cout << "Error in supplying arguments "<<endl;
+{
+  cout << argv[0]<<"<current Directory>" << "<new path>"<<endl;  	
+  return 0;
+
+}
+
+
 
 currentDir=argv[1];
 targetDir=argv[2];
