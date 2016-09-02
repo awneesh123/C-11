@@ -40,6 +40,9 @@ vector<string>dest = split(targetDir);
 string s = "/";
 string st(1,targetDir[0]);
 string target;
+//case like .
+if((targetDir.size() == 1) && (targetDir=="."))
+	return currentDir;
 
 size_t in = targetDir.find("..");
 
@@ -69,6 +72,9 @@ if(!str.compare(".."))
 {
     size_t index = currentDir.find_last_of("/\\");
     currentDir = currentDir.substr(0,index);
+    //in case we reached to root just display root e.g cases like ../../../..
+    if(index == 0)
+	  currentDir = "/";
 }
 
 else
