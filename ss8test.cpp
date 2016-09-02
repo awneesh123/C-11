@@ -33,7 +33,7 @@ return tokens;
 
 }
 
-string changeDir(string &currentDir,string targetDir)
+string changeDir(string currentDir,string targetDir)
 {
 
 vector<string>dest = split(targetDir);
@@ -46,7 +46,7 @@ size_t in = targetDir.find("..");
 //check for cases like ..klm
 if(in!= string::npos){
 string nextchar = targetDir.substr(in+2,1);
-if(nextchar.compare("/"))
+if((!nextchar.empty()) && (nextchar.compare("/")))
 {
 	cout<<"Error in operations "<<endl;
 	return NULL;
