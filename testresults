@@ -1,0 +1,43 @@
+current Directory: /abc/def
+target Directory: ghi
+after operations: 
+/abc/def/ghi
+
+current Directory: /abc/def
+target Directory: ..
+after operations: 
+/abc
+
+current Directory: /abc/def
+target Directory: /abc
+after operations: 
+/abc
+
+
+current Directory: /abc/def
+target Directory: /abc/klm
+after operations: 
+/abc/klm
+
+
+current Directory: /abc/def
+target Directory: ../..
+after operations: 
+/
+
+
+current Directory: /abc/def
+target Directory: ../../..
+after operations: 
+/
+
+
+current Directory: /abc/def
+target Directory: .
+after operations: 
+/abc/def
+
+current Directory: /abc/def
+target Directory: ..klm
+after operations: 
+Error in operations 
