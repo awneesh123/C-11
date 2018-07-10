@@ -22,7 +22,7 @@ Write a program that simulates a "cd" Unix command in an abstract file system. T
 
 # Tests
 Compile using g++ as below
-g++ -std=c++11 ss8.cpp
+g++ -std=c++11 changeDirectory.cpp
 
 Run
 a.exe <currentDir> <targetDir>
